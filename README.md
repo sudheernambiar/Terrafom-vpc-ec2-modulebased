@@ -1,8 +1,8 @@
 # Terrafom-vpc-ec2-modulebased
 #### creating a VPC (can be used for module based integration
 
-## IMP This is the referance to Terraform-EC2-Creation-modulebased
-## This scipt can either be used individually (need to create provider for AWS and terraform init). 
+## IMP This is the reference to Terraform-EC2-Creation-modulebased
+### This script can either be used individually (need to create provider for AWS and terraform init), otherwise 
 
 ## Prerequisites
 - Script is for AWS environment.
@@ -14,21 +14,22 @@
 ## Files Explained
 
 ### Overview
-This file contains all needed to create a VPC with 6 subnets(first 3 subnets in public and last 3 in private). NAT gateway is there to ensure outbound connectivity to interenet for those machines in the private network. 
-
-#### Provider.tf
-creates the AWS provider in this location which helps us to manage the terraform scripts.
+This file contains all needed to create a VPC with 6 subnets (first 3 subnets in public and last 3 in private). NAT gateway is there to ensure outbound connectivity to internet for those machines in the private network. 
 
 #### variable.tf
 You can either use this to edit directly for a VPC deployment which has variables,
 - cidr_block  - the private IP address range you can choose from say 172.30.0.0/16
 - project     - name of the project
-- level       - Level in which instance is runnig, developement/testing/UAT/Production.
+- level       - Level in which instance is running, development/testing/UAT/Production.
 - owner       - Owner name/ID
 - bits        - Bits you want to borrow for subnet creation (here 3 bits and we will get 8 subnets)
 
 #### vpc.tf
 By this we can create VPC, IGW, NAT-GW, 3 public subnet and 3 private subnets and associated route tables.
+
+#### output.tf
+By this those return types we can specify for the module based (refer https://github.com/sudheernambiar/Terraform-EC2-Creation-modulebased.git for more)
+
 ## Execution steps.
 - terraform init (to initialise with the provider)
 - terraform plan
