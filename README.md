@@ -32,10 +32,25 @@ By this those return types we can specify for the module based (refer https://gi
 
 ## Execution steps.
 - terraform init (to initialise with the provider)
-- terraform plan
-- terraform apply (with a yes you can permit after an overview, or explicitly work it with "terraform apply -auto-approve".
-
+```
+$ terraform init 
+```
+- To identify the procedure pre flight results
+```
+$ terraform plan 
+```
+- Execute the plan (with a yes you can permit after an overview, or explicitly work it with "terraform apply -auto-approve".
+```
+$ terraform apply 
+```
+- Incase to deploy without a pre flight check.
+```
+$ terraform apply -auto-approve 
+```
 Note: In case you want to make a clean-up use "terraform destroy"
+```
+$ terraform destroy
+```
 ## Observations.
 - First VPC, Private subnets, Route Tables, NAT GW and IGW will pop up.
 - Route tables for private has no direct access via IGW to internet but via NAT GW
